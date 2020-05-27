@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  // font-family: 'OratorStd';
+}
+
+#root {
+  width: inherit;
+  height: inherit;
+  // padding: 18px;
+}
+
+#app {
+  width: inherit;
+  height: inherit;
+}
+
+.back-to-top {
+  right: 70px;
+}
+
+p {
+  margin: 0;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
