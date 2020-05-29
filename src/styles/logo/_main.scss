@@ -1,6 +1,6 @@
 .logo {
   &-container {
-    margin: 6% auto;
+    margin: 6% auto 0;
     background-color: #000;
   }
 
@@ -17,7 +17,7 @@
       top: 0;
       height: 100%;
       width: 4px;
-      background-color: #c5c5c5;
+      background-color: #fff;
     }
 
     &:before {
@@ -44,6 +44,7 @@
 .nav {
   &-container {
     text-align: center;
+    padding: 24px 0 12px;
   }
 
   &-menu {
