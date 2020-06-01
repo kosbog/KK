@@ -5,15 +5,16 @@
 
 html,
 body {
-  width: 100%;
+  // width: 100%;
   height: 100%;
-  // font-family: 'OratorStd';
 }
 
 #root {
   width: inherit;
   height: inherit;
-  // padding: 18px;
+  // display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 #app {
@@ -31,4 +32,12 @@ p {
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers})
+}
+
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers})
 }

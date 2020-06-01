@@ -1,17 +1,17 @@
 import * as React from "react";
 import { observer } from "mobx-react-lite";
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from "semantic-ui-react";
 
 export const NavBar = observer(() => {
   return (
     <div className="nav-container">
-      <Menu text compact className="nav-menu">
+      <Menu text compact icon className="nav-menu">
         <Menu.Item
           name="testimonials"
           // active={activeItem === "testimonials"}
           // onClick={this.handleItemClick}
         >
-          Catalog
+          <Icon name="facebook" />
         </Menu.Item>
 
         <Menu.Item
@@ -19,7 +19,7 @@ export const NavBar = observer(() => {
           // active={activeItem === "sign-in"}
           // onClick={this.handleItemClick}
         >
-          Contacts
+          <Icon name="instagram" />
         </Menu.Item>
       </Menu>
     </div>
