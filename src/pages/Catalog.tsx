@@ -7,7 +7,7 @@ export const Catalog = observer(() => {
   React.useEffect(() => window.scrollTo(0, 0));
   return (
     <div className="catalog catalog-wrapper">
-      {Array.from("12".repeat(5)).map((item, idx) => {
+      {Array.from("12345678".repeat(3)).map((item, idx) => {
         return (
           <Link to={`/catalog/${item}`} className="catalog-item-link-wrapper">
             <CatalogItem id={item} key={idx} />

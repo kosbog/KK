@@ -13,11 +13,13 @@ import {
 import product1 from "../assets/images/products/1.jpg";
 import product2 from "../assets/images/products/2.jpg";
 import { Link } from "react-router-dom";
+import { LabelType, InfoLabel } from "./InfoLabel";
 
 interface CatalogItemProps {
   id: string;
   classNames?: string;
   isPage?: boolean;
+  label?: LabelType;
 }
 
 export const CatalogItem = observer(
@@ -26,7 +28,7 @@ export const CatalogItem = observer(
     const [isLoaded, setLoaded] = React.useState(false);
     const animation = classNames
       ? "fade up"
-      : id === "1"
+      : +id % 2 !== 0
       ? "fade right"
       : "fade left";
 
@@ -35,11 +37,27 @@ export const CatalogItem = observer(
       setVisible(true);
     }, [isVisible]);
 
-    const p1 = {
-      content: "Bicker leather jacket",
-      subheader: "$699",
-    };
+    const subheader = (type: LabelType) => {
+      const headersMap = {
+        SALE: (
+          <Header.Subheader>
+            <span style={{ textDecoration: "line-through", marginRight: 4 }}>$699</span>
+            <span style={{ color: "red" }}>$559</span>
+          </Header.Subheader>
+        ),
+        DISCOUNT: (
+          <Header.Subheader>
+            <span style={{ textDecoration: "line-through", marginRight: 4 }}>$699</span>
+            <span style={{ color: "red" }}>$349</span>
+          </Header.Subheader>
+        ),
+        DEFAULT: <Header.Subheader>$699</Header.Subheader>,
+      };
 
+      return headersMap[type] || headersMap.DEFAULT;
+    };
+    const tempLabel =
+      +id === 2 ? "SALE" : +id === 5 ? "NEW" : +id === 7 ? "DISCOUNT" : null;
     return (
       <Transition visible={isVisible} animation={animation} duration={600}>
         <div className={classNames}>
@@ -48,16 +66,19 @@ export const CatalogItem = observer(
               <Placeholder.Image />
             </Placeholder>
           )}
-          <Image
-            src={id === "1" ? product1 : product2}
-            fluid
-            onLoad={() => setLoaded(true)}
-          />
-          <Header
-            as={isPage ? "h2" : "h4"}
-            className="catalog-item-header"
-            {...p1}
-          />
+          <div className="image-wrapper">
+            <InfoLabel type={tempLabel} />
+            <Image
+              src={id !== "1" ? product1 : product2}
+              fluid
+              onLoad={() => setLoaded(true)}
+            />
+          </div>
+
+          <Header as={isPage ? "h2" : "h4"} className="catalog-item-header">
+            Bicker leather jacket
+            <Header.Subheader>{subheader(tempLabel)}</Header.Subheader>
+          </Header>
 
           {isPage && (
             <>
@@ -102,7 +123,9 @@ export const CatalogItem = observer(
 
                 <Menu.Item
                   name="telegram"
-                  onClick={() => window.open("https://t.me/KonstantinKositskiy")}
+                  onClick={() =>
+                    window.open("https://t.me/KonstantinKositskiy")
+                  }
                 >
                   <Icon name="telegram plane" />
                   Follow

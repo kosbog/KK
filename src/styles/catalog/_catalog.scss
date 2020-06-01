@@ -23,6 +23,12 @@
       }
     }
 
+    &-label {
+      &.ui.floating.label {
+        left: 10px;
+      }
+    }
+
     &-image-placeholder.ui.placeholder {
       position: absolute;
       top: 0;
@@ -33,10 +39,13 @@
     }
 
     &-container {
-      padding: 16px 5%;
+      padding: 0 5%;
+      margin: 24px auto;
+
       .social-menu {
         justify-content: center;
       }
+
       .back-homepage {
         margin: 24px 0;
       }
