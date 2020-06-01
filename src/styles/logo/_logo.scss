@@ -1,7 +1,7 @@
 .logo {
-  &-wrapper {
-    margin-top: 7%;
-  }
+  // &-wrapper {
+  //   margin-top: 7%;
+  // }
   &-container {
     background-color: #000;
     z-index: 1;
@@ -11,17 +11,17 @@
     width: 85%;
     margin: 0 auto;
 
-    &:before,
-    &:after {
-      display: block;
-      content: '';
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      height: 100%;
-      width: 4px;
-      background-color: #fff;
-    }
+    // &:before,
+    // &:after {
+    //   display: block;
+    //   content: '';
+    //   position: absolute;
+    //   z-index: 1;
+    //   top: 0;
+    //   height: 100%;
+    //   width: 4px;
+    //   background-color: #fff;
+    // }
 
     &:before {
       left: -3%;
@@ -39,8 +39,6 @@
     width: 90%;
     height: 130%;
     border: 4px solid #000;
-
-
   }
 }
 
