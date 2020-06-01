@@ -10,6 +10,7 @@ import { Home } from "./pages/Home";
 import { Logo } from "./components/Logo";
 import { CatalogItem } from "./components/CatalogItem";
 import { Footer } from "./components/Footer";
+import { Catalog } from "src/pages/Catalog";
 
 export const App = observer(() => {
   return (
@@ -18,11 +19,13 @@ export const App = observer(() => {
         <Logo />
         <Switch>
           <Route path="/" exact component={Home} />
-          {/* <Route path="/catalog" component={About} /> */}
+          <Route path="/catalog" exact component={Catalog} />
           <Route
             path="/catalog/:id"
+            exact
             render={(props: RouteComponentProps<{ id: string }>) => (
               <CatalogItem
+                {...props}
                 id={props.match.params.id}
                 isPage={true}
                 classNames="catalog-item-container"
@@ -32,7 +35,7 @@ export const App = observer(() => {
           {/* <Route path="/contact" component={Contact} /> */}
         </Switch>
         <Footer />
-        <p style={{height: 20}}></p>
+        <p style={{ height: 20 }}></p>
       </Router>
     </>
   );

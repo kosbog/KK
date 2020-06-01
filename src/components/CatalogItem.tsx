@@ -41,13 +41,17 @@ export const CatalogItem = observer(
       const headersMap = {
         SALE: (
           <Header.Subheader>
-            <span style={{ textDecoration: "line-through", marginRight: 4 }}>$699</span>
+            <span style={{ textDecoration: "line-through", marginRight: 4 }}>
+              $699
+            </span>
             <span style={{ color: "red" }}>$559</span>
           </Header.Subheader>
         ),
         DISCOUNT: (
           <Header.Subheader>
-            <span style={{ textDecoration: "line-through", marginRight: 4 }}>$699</span>
+            <span style={{ textDecoration: "line-through", marginRight: 4 }}>
+              $699
+            </span>
             <span style={{ color: "red" }}>$349</span>
           </Header.Subheader>
         ),
@@ -94,9 +98,9 @@ export const CatalogItem = observer(
                 </p>
               </Item.Description>
 
-              <Link to={"/"}>
+              <Link to={"/catalog"}>
                 <Button fluid basic color="black" className="back-homepage">
-                  <Icon name="arrow left" /> Back to homepage
+                  <Icon name="arrow left" /> Back to catalog
                 </Button>
               </Link>
 

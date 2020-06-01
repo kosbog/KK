@@ -21,6 +21,11 @@
       &:nth-child(even) {
         padding-left: 8px;
       }
+      &.go {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
     &-label {
@@ -41,6 +46,10 @@
     &-container {
       padding: 0 5%;
       margin: 24px auto;
+
+      .image-wrapper {
+        padding: 8px 0;
+      }
 
       .social-menu {
         justify-content: center;
