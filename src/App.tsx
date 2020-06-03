@@ -11,12 +11,14 @@ import { Logo } from "./components/Logo";
 import { CatalogItem } from "./components/CatalogItem";
 import { Footer } from "./components/Footer";
 import { Catalog } from "src/pages/Catalog";
+import { NavBar } from './components/NavBar';
 
 export const App = observer(() => {
   return (
     <>
       <Router>
         <Logo />
+        <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/catalog" exact component={Catalog} />

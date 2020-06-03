@@ -2,7 +2,6 @@ import * as React from "react";
 import { observer } from "mobx-react-lite";
 import { Image, Transition } from "semantic-ui-react";
 import logo from "../assets/images/logo.22f8373f.jpg";
-import { CustomDivider } from "./Divider";
 import { Link } from "react-router-dom";
 
 export const Logo = observer(() => {
@@ -26,7 +25,7 @@ export const Logo = observer(() => {
           {/* <* className="logo-frame" />*/}
         </div>
       </Transition>
-      <CustomDivider />
+      {/* <CustomDivider /> */}
     </>
   );
 });

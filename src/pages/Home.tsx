@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { CatalogItem } from "src/components/CatalogItem";
 import { Header, Icon } from "semantic-ui-react";
 
-
 export const Home = observer(() => {
   return (
     <div className="catalog catalog-wrapper">

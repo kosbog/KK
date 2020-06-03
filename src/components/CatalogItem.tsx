@@ -1,19 +1,19 @@
 import * as React from "react";
 import { observer } from "mobx-react-lite";
 import {
-  Image,
   Header,
   Transition,
   Icon,
   Menu,
   Button,
   Item,
-  Placeholder,
 } from "semantic-ui-react";
 import product1 from "../assets/images/products/1.jpg";
 import product2 from "../assets/images/products/2.jpg";
 import { Link } from "react-router-dom";
 import { LabelType, InfoLabel } from "./InfoLabel";
+import { CarouselProvider, Slider, Slide, ImageWithZoom } from 'pure-react-carousel';
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 interface CatalogItemProps {
   id: string;
@@ -25,7 +25,7 @@ interface CatalogItemProps {
 export const CatalogItem = observer(
   ({ id, classNames, isPage }: CatalogItemProps) => {
     const [isVisible, setVisible] = React.useState(false);
-    const [isLoaded, setLoaded] = React.useState(false);
+    // const [isLoaded, setLoaded] = React.useState(false);
     const animation = classNames
       ? "fade up"
       : +id % 2 !== 0
@@ -65,18 +65,34 @@ export const CatalogItem = observer(
     return (
       <Transition visible={isVisible} animation={animation} duration={600}>
         <div className={classNames}>
-          {!isLoaded && (
+          {/* {!isLoaded && (
             <Placeholder className="catalog-item-image-placeholder">
               <Placeholder.Image />
             </Placeholder>
-          )}
+          )} */}
           <div className="image-wrapper">
             <InfoLabel type={tempLabel} />
-            <Image
+            <CarouselProvider
+              visibleSlides={1}
+              totalSlides={2}
+              step={1}
+              naturalSlideWidth={1080}
+              naturalSlideHeight={1080}
+            >
+              <Slider>
+                <Slide tag="a" index={0}>
+                  <ImageWithZoom src={product1} />
+                </Slide>
+                <Slide tag="b" index={1}>
+                  <ImageWithZoom src={product2} />
+                </Slide>
+              </Slider>
+            </CarouselProvider>
+            {/* <Image
               src={id !== "1" ? product1 : product2}
               fluid
               onLoad={() => setLoaded(true)}
-            />
+            /> */}
           </div>
 
           <Header as={isPage ? "h2" : "h4"} className="catalog-item-header">
