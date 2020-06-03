@@ -21,9 +21,10 @@ export const App = observer(() => {
         <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/catalog" exact component={Catalog} />
+          <Route path="/catalog" exact component={null} />
+          <Route path="/catalog/:category" exact component={Catalog} />
           <Route
-            path="/catalog/:id"
+            path="/catalog/:category/:id"
             exact
             render={(props: RouteComponentProps<{ id: string }>) => (
               <CatalogItem

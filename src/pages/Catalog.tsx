@@ -3,13 +3,12 @@ import { observer } from "mobx-react-lite";
 import { CatalogItem } from "src/components/CatalogItem";
 import { Link, RouteComponentProps } from "react-router-dom";
 
-interface CatalogProps extends RouteComponentProps<null> {
+interface CatalogProps extends RouteComponentProps<{ category: string }> {
   isPage?: boolean;
 }
 
 export const Catalog = observer(
   ({ isPage, match: { url }, ...rest }: CatalogProps) => {
-    console.log(rest);
     const data = Array.from("123456789".repeat(4));
 
     React.useEffect(() => window.scrollTo(0, 0));
