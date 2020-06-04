@@ -7,6 +7,7 @@ export const NavBar = withRouter(
   observer(({ location: { pathname }, history }: RouteComponentProps) => {
     const [activeMenu, setActiveMenu] = React.useState("home");
     const catalogMap = [
+      "#all",
       "#bikerjacket",
       "#bomberjacket",
       "#oversizejacket",
@@ -61,7 +62,12 @@ export const NavBar = withRouter(
           <div className="category category-wrapper">
             {catalogMap.map((menu) => (
               <Link to={`/catalog/${menu.substring(1)}`}>
-                <Header as="h3">{menu}</Header>
+                <Header
+                  className={pathname.indexOf(menu.substring(1)) !== -1 && "active"}
+                  as="h3"
+                >
+                  {menu}
+                </Header>
               </Link>
             ))}
           </div>

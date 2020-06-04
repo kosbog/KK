@@ -12,18 +12,24 @@ import product1 from "../assets/images/products/1.jpg";
 import product2 from "../assets/images/products/2.jpg";
 import { Link } from "react-router-dom";
 import { LabelType, InfoLabel } from "./InfoLabel";
-import { CarouselProvider, Slider, Slide, ImageWithZoom } from 'pure-react-carousel';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ImageWithZoom,
+} from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 
 interface CatalogItemProps {
   id: string;
+  category: string;
   classNames?: string;
   isPage?: boolean;
   label?: LabelType;
 }
 
 export const CatalogItem = observer(
-  ({ id, classNames, isPage }: CatalogItemProps) => {
+  ({ id, classNames, isPage, category }: CatalogItemProps) => {
     const [isVisible, setVisible] = React.useState(false);
     // const [isLoaded, setLoaded] = React.useState(false);
     const animation = classNames
@@ -114,9 +120,10 @@ export const CatalogItem = observer(
                 </p>
               </Item.Description>
 
-              <Link to={"/catalog/all"}>
+              <Link to={`/catalog/${category}`}>
                 <Button fluid basic color="black" className="back-homepage">
-                  <Icon name="arrow left" /> Back to catalog
+                  <Icon name="arrow left" />
+                  {`Back to #${category}`}
                 </Button>
               </Link>
 

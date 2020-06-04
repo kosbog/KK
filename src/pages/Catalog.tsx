@@ -8,7 +8,7 @@ interface CatalogProps extends RouteComponentProps<{ category: string }> {
 }
 
 export const Catalog = observer(
-  ({ isPage, match: { url }, ...rest }: CatalogProps) => {
+  ({ isPage, match: { url, params }, ...rest }: CatalogProps) => {
     const data = Array.from("123456789".repeat(4));
 
     React.useEffect(() => window.scrollTo(0, 0));
@@ -18,7 +18,7 @@ export const Catalog = observer(
         {data.map((item, idx) => {
           return (
             <Link to={`${url}/${item}`} className="catalog-item-link-wrapper">
-              <CatalogItem id={item} key={idx} />
+              <CatalogItem id={item} category={params.category} key={idx} />
             </Link>
           );
         })}

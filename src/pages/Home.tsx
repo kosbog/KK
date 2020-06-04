@@ -10,7 +10,7 @@ export const Home = observer(() => {
       {Array.from("123".repeat(3)).map((item, idx) => {
         return (
           <Link to={`catalog/all/${item}`} className="catalog-item-link-wrapper">
-            <CatalogItem id={item} key={idx} />
+            <CatalogItem id={item} category={'all'} key={idx} />
           </Link>
         );
       })}
