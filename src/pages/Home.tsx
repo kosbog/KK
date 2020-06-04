@@ -9,12 +9,12 @@ export const Home = observer(() => {
     <div className="catalog catalog-wrapper">
       {Array.from("123".repeat(3)).map((item, idx) => {
         return (
-          <Link to={`catalog/${item}`} className="catalog-item-link-wrapper">
+          <Link to={`catalog/all/${item}`} className="catalog-item-link-wrapper">
             <CatalogItem id={item} key={idx} />
           </Link>
         );
       })}
-      <Link to={`/catalog`} className="catalog-item-link-wrapper go">
+      <Link to={`/catalog/all`} className="catalog-item-link-wrapper go">
         <Header as="h4" icon>
           <Icon name="arrow right" />
           See them all

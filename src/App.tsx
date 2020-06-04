@@ -10,8 +10,8 @@ import { Home } from "./pages/Home";
 import { Logo } from "./components/Logo";
 import { CatalogItem } from "./components/CatalogItem";
 import { Footer } from "./components/Footer";
-import { Catalog } from "src/pages/Catalog";
 import { NavBar } from './components/NavBar';
+import { Catalog } from 'src/pages/Catalog';
 
 export const App = observer(() => {
   return (
@@ -21,7 +21,7 @@ export const App = observer(() => {
         <NavBar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/catalog" exact component={null} />
+          <Route path="/catalog" exact component={Catalog} />
           <Route path="/catalog/:category" exact component={Catalog} />
           <Route
             path="/catalog/:category/:id"

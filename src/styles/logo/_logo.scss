@@ -47,9 +47,11 @@
   &-container {
     text-align: center;
     padding: 24px 0 12px;
+
     a {
       color: #000;
     }
+
     .ui.text.menu .active.item {
       transition: background-color .2s;
       background-color: #000;
@@ -62,6 +64,14 @@
 
   &-menu {
     align-items: center;
+
+    &-item {
+      width: 70px;
+      justify-content: center;
+      .ui.compact.menu &:last-child {
+        border-radius: 0;
+      }
+    }
 
     span.divider {
       width: 20px;

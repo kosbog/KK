@@ -114,7 +114,7 @@ export const CatalogItem = observer(
                 </p>
               </Item.Description>
 
-              <Link to={"/catalog"}>
+              <Link to={"/catalog/all"}>
                 <Button fluid basic color="black" className="back-homepage">
                   <Icon name="arrow left" /> Back to catalog
                 </Button>
