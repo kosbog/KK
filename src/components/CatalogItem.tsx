@@ -4,21 +4,13 @@ import {
   Header,
   Transition,
   Icon,
-  Menu,
   Button,
   Item,
 } from "semantic-ui-react";
-import product1 from "../assets/images/products/1.jpg";
-import product2 from "../assets/images/products/2.jpg";
 import { Link } from "react-router-dom";
 import { LabelType, InfoLabel } from "./InfoLabel";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ImageWithZoom,
-} from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import { CustomSlider } from './CustomSlider';
 
 interface CatalogItemProps {
   id: string;
@@ -35,8 +27,8 @@ export const CatalogItem = observer(
     const animation = classNames
       ? "fade up"
       : +id % 2 !== 0
-      ? "fade right"
-      : "fade left";
+        ? "fade right"
+        : "fade left";
 
     React.useEffect(() => {
       window.scrollTo(0, 0);
@@ -71,34 +63,9 @@ export const CatalogItem = observer(
     return (
       <Transition visible={isVisible} animation={animation} duration={600}>
         <div className={classNames}>
-          {/* {!isLoaded && (
-            <Placeholder className="catalog-item-image-placeholder">
-              <Placeholder.Image />
-            </Placeholder>
-          )} */}
           <div className="image-wrapper">
             <InfoLabel type={tempLabel} />
-            <CarouselProvider
-              visibleSlides={1}
-              totalSlides={2}
-              step={1}
-              naturalSlideWidth={1080}
-              naturalSlideHeight={1080}
-            >
-              <Slider>
-                <Slide tag="a" index={0}>
-                  <ImageWithZoom src={product1} />
-                </Slide>
-                <Slide tag="b" index={1}>
-                  <ImageWithZoom src={product2} />
-                </Slide>
-              </Slider>
-            </CarouselProvider>
-            {/* <Image
-              src={id !== "1" ? product1 : product2}
-              fluid
-              onLoad={() => setLoaded(true)}
-            /> */}
+            <CustomSlider withButtons={isPage} />
           </div>
 
           <Header as={isPage ? "h2" : "h4"} className="catalog-item-header">
@@ -126,38 +93,7 @@ export const CatalogItem = observer(
                   {`Back to #${category}`}
                 </Button>
               </Link>
-
-              <Menu compact fluid text icon="labeled" className="social-menu">
-                <Menu.Item
-                  name="instagram"
-                  onClick={() =>
-                    window.open(
-                      "https://www.instagram.com/konstantin.kositskiy"
-                    )
-                  }
-                >
-                  <Icon name="instagram" />
-                  Like
-                </Menu.Item>
-
-                <Menu.Item
-                  name="pinterest"
-                  onClick={() => window.open("https://www.pinterest.com/")}
-                >
-                  <Icon name="pinterest" />
-                  Pin
-                </Menu.Item>
-
-                <Menu.Item
-                  name="telegram"
-                  onClick={() =>
-                    window.open("https://t.me/KonstantinKositskiy")
-                  }
-                >
-                  <Icon name="telegram plane" />
-                  Follow
-                </Menu.Item>
-              </Menu>
+              {/* <SocialLinks /> */}
             </>
           )}
         </div>

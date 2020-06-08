@@ -34,7 +34,7 @@
     "noEmit": true,
     "strict": true,
     "baseUrl": ".",
-    // "isolatedModules": true
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules",

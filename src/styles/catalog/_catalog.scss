@@ -52,9 +52,7 @@
         padding: 8px 0;
       }
 
-      .social-menu {
-        justify-content: center;
-      }
+
 
       .back-homepage {
         margin: 24px 0;
@@ -69,8 +67,6 @@
       margin-top: 10px;
     }
   }
-
-
 }
 
 .category {
@@ -104,8 +100,50 @@
 
       &.active {
         color: #ff0000;
-
       }
     }
+  }
+}
+
+.custom-slider {
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    margin: -20px 10px 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.right {
+      right: 0;
+    }
+
+    &.left {
+      left: 0;
+    }
+
+    i {
+      color: #fff;
+    }
+  }
+}
+
+.footer {
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.social-menu {
+  &.ui.compact.menu {
+    justify-content: center;
+    margin-top: 8px;
   }
 }

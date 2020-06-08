@@ -18,7 +18,7 @@ export const Catalog = observer(
         {data.map((item, idx) => {
           return (
             <Link to={`${url}/${item}`} className="catalog-item-link-wrapper">
-              <CatalogItem id={item} category={params.category} key={idx} />
+              <CatalogItem id={item} category={params.category} key={idx} isPage={false} />
             </Link>
           );
         })}
