@@ -29,7 +29,7 @@ const labelsMap: {
 
 export const InfoLabel = observer(({ type, ...rest }: InfoLabelProps) => {
   return labelsMap[type] && (
-    <Label className="catalog-item-label" floating as="a" color={labelsMap[type].color}>
+    <Label className="catalog-item-label" floating as="span" color={labelsMap[type].color}>
       {labelsMap[type].text}
     </Label>
   );

@@ -1,6 +1,15 @@
-import * as React from 'react';
-import { Slide, ImageWithZoom, ButtonBack, Slider, ButtonNext, WithStore, CarouselInjectedProps, CarouselProvider } from 'pure-react-carousel';
-import { Icon } from 'semantic-ui-react';
+import * as React from "react";
+import {
+  Slide,
+  ImageWithZoom,
+  ButtonBack,
+  Slider,
+  ButtonNext,
+  WithStore,
+  CarouselInjectedProps,
+  CarouselProvider,
+} from "pure-react-carousel";
+import { Icon } from "semantic-ui-react";
 import product1 from "../assets/images/products/1.jpg";
 import product2 from "../assets/images/products/2.jpg";
 
@@ -15,9 +24,9 @@ interface CustomSliderProps {
   naturalSlideHeight?: number;
 }
 
-interface SliderContentProps extends Pick<CustomSliderProps, 'images' | 'withButtons'>, CarouselInjectedProps {
-}
-
+interface SliderContentProps
+  extends Pick<CustomSliderProps, "images" | "withButtons">,
+    CarouselInjectedProps {}
 
 class CustomSliderWrapper extends React.Component<CustomSliderProps> {
   static defaultProps: Partial<CustomSliderProps> = {
@@ -34,7 +43,7 @@ class CustomSliderWrapper extends React.Component<CustomSliderProps> {
     const { images, infinite, withButtons } = this.props;
     return (
       <CarouselProvider
-      // hasMasterSpinner
+        // hasMasterSpinner
         infinite={infinite}
         visibleSlides={1}
         totalSlides={2}
@@ -43,7 +52,6 @@ class CustomSliderWrapper extends React.Component<CustomSliderProps> {
         naturalSlideHeight={1080}
         className="custom-slider"
       >
-
         <SliderContent images={images} withButtons={withButtons} />
       </CarouselProvider>
     );
@@ -57,7 +65,7 @@ class SliderContentWrapper extends React.Component<SliderContentProps> {
       <>
         <Slider>
           {images.map((item, idx) => (
-            <Slide index={idx}>
+            <Slide index={idx} key={idx}>
               <ImageWithZoom src={item} />
             </Slide>
           ))}
@@ -65,10 +73,10 @@ class SliderContentWrapper extends React.Component<SliderContentProps> {
         {withButtons && (
           <>
             <ButtonBack className="slider-button left">
-              <Icon fitted size="large" name='arrow left' />
+              <Icon fitted size="large" name="arrow left" />
             </ButtonBack>
             <ButtonNext className="slider-button right">
-              <Icon fitted size="large" name='arrow right' />
+              <Icon fitted size="large" name="arrow right" />
             </ButtonNext>
           </>
         )}

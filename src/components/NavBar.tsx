@@ -27,6 +27,7 @@ export const NavBar = withRouter(
       <div className="nav-container">
         <Menu text compact icon className="nav-menu">
           <Menu.Item
+            as="span"
             className="nav-menu-item"
             name="home"
             active={pathname.length === 1}
@@ -36,6 +37,7 @@ export const NavBar = withRouter(
           </Menu.Item>
           <span className="divider"></span>
           <Menu.Item
+            as="span"
             className="nav-menu-item"
             name="catalog"
             active={pathname.indexOf("catalog") !== -1}
@@ -50,6 +52,7 @@ export const NavBar = withRouter(
           </Menu.Item>
           <span className="divider"></span>
           <Menu.Item
+            as="span"
             className="nav-menu-item"
             name="contacts"
             active={pathname.indexOf("contacts") !== -1}
@@ -63,7 +66,9 @@ export const NavBar = withRouter(
             {catalogMap.map((menu) => (
               <Link to={`/catalog/${menu.substring(1)}`}>
                 <Header
-                  className={pathname.indexOf(menu.substring(1)) !== -1 && "active"}
+                  className={
+                    pathname.indexOf(menu.substring(1)) !== -1 && "active"
+                  }
                   as="h3"
                 >
                   {menu}

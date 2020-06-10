@@ -2,6 +2,7 @@ import * as React from "react";
 import { observer } from "mobx-react-lite";
 import { CatalogItem } from "src/components/CatalogItem";
 import { Link, RouteComponentProps } from "react-router-dom";
+import { BackToTop } from 'src/components/BactToTop';
 
 interface CatalogProps extends RouteComponentProps<{ category: string }> {
   isPage?: boolean;
@@ -18,10 +19,16 @@ export const Catalog = observer(
         {data.map((item, idx) => {
           return (
             <Link to={`${url}/${item}`} className="catalog-item-link-wrapper">
-              <CatalogItem id={item} category={params.category} key={idx} isPage={false} />
+              <CatalogItem
+                id={item}
+                category={params.category}
+                key={idx}
+                isPage={false}
+              />
             </Link>
           );
         })}
+        <BackToTop />
       </div>
     );
   }

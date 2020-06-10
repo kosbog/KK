@@ -105,33 +105,6 @@
   }
 }
 
-.custom-slider {
-  .slider-button {
-    position: absolute;
-    top: 50%;
-    margin: -20px 10px 0;
-    height: 40px;
-    width: 40px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &.right {
-      right: 0;
-    }
-
-    &.left {
-      left: 0;
-    }
-
-    i {
-      color: #fff;
-    }
-  }
-}
-
 .footer {
   &-wrapper {
     display: flex;

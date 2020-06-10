@@ -9,15 +9,19 @@ export const Home = observer(() => {
     <div className="catalog catalog-wrapper">
       {Array.from("123".repeat(3)).map((item, idx) => {
         return (
-          <Link to={`catalog/all/${item}`} className="catalog-item-link-wrapper">
-            <CatalogItem id={item} category={'all'} key={idx} isPage={false} />
+          <Link
+            to={`catalog/all/${item}`}
+            className="catalog-item-link-wrapper"
+            key={idx}
+          >
+            <CatalogItem id={item} category={"all"} isPage={false} />
           </Link>
         );
       })}
       <Link to={`/catalog/all`} className="catalog-item-link-wrapper go">
         <Header as="h4" icon>
           <Icon name="arrow right" />
-          See them all
+          Check them all
         </Header>
       </Link>
     </div>

@@ -11,7 +11,7 @@ export const Category = observer(
   ({ isPage, match: { url }, ...rest }: CategoryProps) => {
     // const data = Array.from("123456789".repeat(4));
 
-    React.useEffect(() => window.scrollTo(0, 0));
+    React.useEffect(() => window.scrollTo(0, 0), [url]);
 
     return (
       <div className="category category-wrapper">
