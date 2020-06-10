@@ -43,7 +43,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "firebase-deploy": "firebase deploy"
+    "firebase": "firebase deploy",
+    "deploy": "yarn run build && yarn run firebase"
   },
   "eslintConfig": {
     "extends": "react-app"
