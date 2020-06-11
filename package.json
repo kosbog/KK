@@ -1,6 +1,6 @@
 {
   "name": "kk",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -45,12 +45,12 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_VERSION=$npm_package_version react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "firebase": "firebase deploy",
-    "deploy": "yarn run build && yarn run firebase",
+    "deploy": "yarn run build && yarn run firebase && yarn version --patch",
     "serve": "nodemon server.ts"
   },
   "eslintConfig": {
