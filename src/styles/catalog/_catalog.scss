@@ -107,6 +107,8 @@
   &-wrapper {
     padding: 8px;
     display: flex;
+    flex: 0;
+    height: 96px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
