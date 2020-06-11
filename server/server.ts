@@ -5,25 +5,21 @@ const logger = require("koa-logger");
 const cors = require("koa-cors");
 const serve = require("koa-static");
 const mount = require("koa-mount");
-const userAgent = require("koa-useragent");
-const cookieParser = require("koa-cookie");
 const httpStatus = require("http-status");
+
 
 const app = new Koa();
 const router = new Router();
+const static_pages = new Koa();
 const PORT = process.env.PORT || 8080;
 
-const static_pages = new Koa();
 static_pages.use(serve("./build"));
-app.use(mount("/", static_pages));
-
+app.use( async () => mount("/", static_pages));
 app.use(bodyParser());
-// app.use(cookieParser());
-// app.use(userAgent());
 app.use(logger());
 app.use(cors());
 
-router.get("/products", async (ctx: any, next: any) => {
+router.get("/products", async (ctx: { status: any; body: string[]; }, next: () => any) => {
   const products = [
     "Speaking javascript",
     "Fluent Python",
@@ -38,10 +34,13 @@ router.get("/products", async (ctx: any, next: any) => {
 
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(PORT, function () {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.listen(PORT, () => {
   console.log(
     "==> 🌎  Listening on port %s. Visit http://localhost:%s/",
     PORT,
     PORT
   );
 });
+
+export {};
