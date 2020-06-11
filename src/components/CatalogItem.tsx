@@ -63,39 +63,42 @@ export const CatalogItem = observer(
     return (
       <Transition visible={isVisible} animation={animation} duration={600}>
         <div className={classNames}>
-          <div className="image-wrapper">
-            <InfoLabel type={tempLabel} />
-            <CustomSlider withButtons={isPage} />
+          <div className="catalog-item-wrapper">
+            <div className="image-wrapper">
+              <InfoLabel type={tempLabel} />
+              <CustomSlider withButtons={isPage} />
+            </div>
+
+            <div className="info-wrapper">
+              <Header as={isPage ? "h2" : "h4"} className="catalog-item-header">
+                Bicker leather jacket
+                <Header.Subheader>{subheader(tempLabel)}</Header.Subheader>
+              </Header>
+
+              {isPage && (
+                <>
+                  <Item.Description className="catalog-item-description">
+                    <p>
+                      Eiusmod labore sint sit duis esse consequat anim. Lorem
+                      consectetur ullamco nostrud anim est ex Lorem ullamco do
+                      pariatur. Labore nostrud id qui proident adipisicing voluptate
+                      aliquip Lorem fugiat labore officia sit consectetur. Excepteur
+                      sit do proident anim nulla in cupidatat sint pariatur. Sunt
+                      enim irure consequat non duis mollit aute duis sit aliquip
+                      ullamco.
+                    </p>
+                  </Item.Description>
+
+                  <Link to={`/catalog/${category}`}>
+                    <Button fluid basic color="black" className="back-homepage">
+                      <Icon name="arrow left" />
+                      {`Back to #${category}`}
+                    </Button>
+                  </Link>
+                </>
+              )}
+            </div>
           </div>
-
-          <Header as={isPage ? "h2" : "h4"} className="catalog-item-header">
-            Bicker leather jacket
-            <Header.Subheader>{subheader(tempLabel)}</Header.Subheader>
-          </Header>
-
-          {isPage && (
-            <>
-              <Item.Description className="catalog-item-description">
-                <p>
-                  Eiusmod labore sint sit duis esse consequat anim. Lorem
-                  consectetur ullamco nostrud anim est ex Lorem ullamco do
-                  pariatur. Labore nostrud id qui proident adipisicing voluptate
-                  aliquip Lorem fugiat labore officia sit consectetur. Excepteur
-                  sit do proident anim nulla in cupidatat sint pariatur. Sunt
-                  enim irure consequat non duis mollit aute duis sit aliquip
-                  ullamco.
-                </p>
-              </Item.Description>
-
-              <Link to={`/catalog/${category}`}>
-                <Button fluid basic color="black" className="back-homepage">
-                  <Icon name="arrow left" />
-                  {`Back to #${category}`}
-                </Button>
-              </Link>
-              {/* <SocialLinks /> */}
-            </>
-          )}
         </div>
       </Transition>
     );

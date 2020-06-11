@@ -1,0 +1,34 @@
+@media screen and (min-width: 1200px) {
+  .catalog {
+    &-item {
+      &-link-wrapper {
+        width: calc(100% / 3.1);
+
+        &:nth-child(odd) {
+          padding-right: 0;
+        }
+
+        &:nth-child(even) {
+          padding-left: 0;
+        }
+      }
+
+      &-container {
+        .catalog-item-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .image-wrapper {
+            flex: 1 0 auto;
+          }
+
+          .info-wrapper {
+            width: 50%;
+            padding: 0 24px;
+          }
+        }
+      }
+    }
+  }
+}

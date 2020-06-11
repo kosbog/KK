@@ -61,6 +61,7 @@ class CustomSliderWrapper extends React.Component<CustomSliderProps> {
 class SliderContentWrapper extends React.Component<SliderContentProps> {
   render() {
     const { images, withButtons } = this.props;
+    console.log(this.props);
     return (
       <>
         <Slider>

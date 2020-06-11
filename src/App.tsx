@@ -16,31 +16,33 @@ import { Catalog } from "src/pages/Catalog";
 export const App = observer(() => {
   return (
     <>
-      <Router>
-        <Logo />
-        <NavBar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/catalog/:category" exact component={Catalog} />
-          <Route
-            path="/catalog/:category/:id"
-            exact
-            render={(
-              props: RouteComponentProps<{ id: string; category: string }>
-            ) => (
-              <CatalogItem
-                {...props}
-                id={props.match.params.id}
-                category={props.match.params.category}
-                isPage={true}
-                classNames="catalog-item-container"
-              />
-            )}
-          />
-          {/* <Route path="/contact" component={Contact} /> */}
-        </Switch>
-        <Footer />
-      </Router>
+      <div className="content">
+        <Router>
+          <Logo />
+          <NavBar />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/catalog/:category" exact component={Catalog} />
+            <Route
+              path="/catalog/:category/:id"
+              exact
+              render={(
+                props: RouteComponentProps<{ id: string; category: string }>
+              ) => (
+                <CatalogItem
+                  {...props}
+                  id={props.match.params.id}
+                  category={props.match.params.category}
+                  isPage={true}
+                  classNames="catalog-item-container"
+                />
+              )}
+            />
+            {/* <Route path="/contact" component={Contact} /> */}
+          </Switch>
+        </Router>
+      </div>
+      <Footer />
     </>
   );
 });
