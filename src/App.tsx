@@ -40,7 +40,6 @@ export const App = observer(() => {
           {/* <Route path="/contact" component={Contact} /> */}
         </Switch>
         <Footer />
-        <p style={{ height: 20 }}></p>
       </Router>
     </>
   );

@@ -107,10 +107,21 @@
 
 .footer {
   &-wrapper {
+    padding: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #000;
+    color: #3e3e3e;
+    i {
+      color: #5e5e5e;
+    }
+  }
+  &-container {
+    text-align: center;
+    margin: 8px;
+    font-size: 10px;
   }
 }
 
