@@ -12,11 +12,13 @@ import { CatalogItem } from "./components/CatalogItem";
 import { Footer } from "./components/Footer";
 import { NavBar } from "./components/NavBar";
 import { Catalog } from "src/pages/Catalog";
+import { Version } from './components/Version';
 
 export const App = observer(() => {
   return (
     <>
       <div className="content">
+        <Version />
         <Router>
           <Logo />
           <NavBar />

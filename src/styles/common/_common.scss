@@ -38,6 +38,15 @@ p {
   margin-bottom: 20px;
 }
 
+.version {
+  color: #fff;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  margin: 5px;
+}
+
 @function max($numbers...) {
   @return m#{a}x(#{$numbers})
 }
