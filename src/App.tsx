@@ -14,6 +14,8 @@ import { NavBar } from "./components/NavBar";
 import { Catalog } from "src/pages/Catalog";
 import { Version } from "./components/Version";
 import { useStores } from "./utils/hooks";
+import { toJS } from 'mobx';
+import { Adminpanel } from './pages/Adminpanel';
 
 export const App = observer(() => {
   const { productsStore } = useStores();
@@ -23,10 +25,10 @@ export const App = observer(() => {
       await productsStore.fetch();
     })();
     console.log("hook");
-    return () => {};
+    return () => { };
   }, [productsStore]);
 
-  console.log(productsStore.jackets);
+  console.log(toJS(productsStore.data));
   return (
     <>
       <div className="content">
@@ -43,16 +45,16 @@ export const App = observer(() => {
               render={(
                 props: RouteComponentProps<{ id: string; category: string }>
               ) => (
-                <CatalogItem
-                  {...props}
-                  id={props.match.params.id}
-                  category={props.match.params.category}
-                  isPage={true}
-                  classNames="catalog-item-container"
-                />
-              )}
+                  <CatalogItem
+                    {...props}
+                    id={props.match.params.id}
+                    category={props.match.params.category}
+                    isPage={true}
+                    classNames="catalog-item-container"
+                  />
+                )}
             />
-            {/* <Route path="/contact" component={Contact} /> */}
+            <Route path="/admin" exact component={Adminpanel} />
           </Switch>
         </Router>
       </div>
