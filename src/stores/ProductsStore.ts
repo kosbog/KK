@@ -1,21 +1,24 @@
-import { observable, action, computed } from 'mobx'
-
+import { observable, action, runInAction } from "mobx";
+import { db } from "src/utils/firebase";
 export class ProductsStore {
-  @observable
-  count = 0
+  @observable jackets: any[] = [];
 
   @action
-  increment() {
-    this.count++
-  }
-
-  @action
-  decrement() {
-    this.count--
-  }
-
-  @computed
-  get doubleCount() {
-    return this.count * 2
+  async fetch() {
+    try {
+      const response = await db.collection("jackets").get();
+      this.jackets = await proccessResponse(response.docs);
+      runInAction(() => {
+        this.jackets = ['s'];
+      })
+    } catch (error) {
+      throw error;
+    }
   }
 }
+
+const proccessResponse = async (docs: any[]) => {
+  console.log(docs);
+  const a = docs.map((element: any) => element.data());
+  return a;
+};

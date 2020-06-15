@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { observer } from "mobx-react-lite";
 import {
   BrowserRouter as Router,
@@ -12,9 +12,21 @@ import { CatalogItem } from "./components/CatalogItem";
 import { Footer } from "./components/Footer";
 import { NavBar } from "./components/NavBar";
 import { Catalog } from "src/pages/Catalog";
-import { Version } from './components/Version';
+import { Version } from "./components/Version";
+import { useStores } from "./utils/hooks";
 
 export const App = observer(() => {
+  const { productsStore } = useStores();
+
+  React.useEffect(() => {
+    (async () => {
+      await productsStore.fetch();
+    })();
+    console.log("hook");
+    return () => {};
+  }, [productsStore]);
+
+  console.log(productsStore.jackets);
   return (
     <>
       <div className="content">
