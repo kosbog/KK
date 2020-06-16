@@ -60,7 +60,7 @@ export const NavBar = withRouter(
           >
             <Link to={"/contacts"}>Contacts</Link>
           </Menu.Item>
-          {true && (
+          {process.env.NODE_ENV === 'development' && (
             <>
               <span className="divider"></span>
               <Menu.Item
