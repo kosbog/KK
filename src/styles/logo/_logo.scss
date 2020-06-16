@@ -6,6 +6,8 @@
   &-container {
     background-color: #000;
     z-index: 1;
+
+
   }
 
   &-image {
@@ -44,10 +46,33 @@
   }
 }
 
+.menu-burger {
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  cursor: pointer;
+
+  &-wrapper {
+    background-color: #000;
+    // width: 30px;
+    text-align: center;
+    padding: 0 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    i {
+      color: #fff;
+      margin: 0;
+    }
+  }
+}
+
 .nav {
   &-container {
     text-align: center;
-    padding: 12px 0 12px;
+    padding: 0;
 
     a {
       color: #000;
@@ -56,14 +81,15 @@
     .ui.text.menu .active.item {
       transition: background-color .2s;
       background-color: #000;
-
+      
       a {
         color: #fff;
       }
     }
   }
-
+  
   &-menu {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,6 +97,7 @@
     &-item {
       width: 70px;
       justify-content: center;
+
       .ui.compact.menu &:last-child {
         border-radius: 0;
       }

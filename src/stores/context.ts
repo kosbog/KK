@@ -1,10 +1,10 @@
 import React from "react";
 import { ProductsStore } from "./ProductsStore";
 import { RoutesStore } from './RoutesStore';
-// import { AdminStore } from './AdminStore';
+import { AuthStore } from './AuthStore';
 
 export const storesContext = React.createContext({
   productsStore: new ProductsStore(),
   routesStore: new RoutesStore(),
-  // adminStore: new AdminStore(),
+  authStore: new AuthStore(),
 });

@@ -24,7 +24,6 @@ export const App = observer(() => {
     (async () => {
       await productsStore.fetch();
     })();
-    console.log("hook");
     return () => { };
   }, [productsStore]);
 
@@ -32,19 +31,18 @@ export const App = observer(() => {
   return (
     <>
       <div className="content">
-        <Version />
         <Router>
+          <Version />
           <Logo />
-          <NavBar />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/catalog/:category" exact component={Catalog} />
-            <Route
-              path="/catalog/:category/:id"
-              exact
-              render={(
-                props: RouteComponentProps<{ id: string; category: string }>
-              ) => (
+          {/* <Drawer> */}
+            <NavBar />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/catalog/:category" exact component={Catalog} />
+              <Route
+                path="/catalog/:category/:id"
+                exact
+                render={(props: RouteComponentProps<{ id: string; category: string }>) => (
                   <CatalogItem
                     {...props}
                     id={props.match.params.id}
@@ -53,9 +51,10 @@ export const App = observer(() => {
                     classNames="catalog-item-container"
                   />
                 )}
-            />
-            <Route path="/admin" exact component={Adminpanel} />
-          </Switch>
+              />
+              <Route path="/admin" exact component={Adminpanel} />
+            </Switch>
+          {/* </Drawer> */}
         </Router>
       </div>
       <Footer />

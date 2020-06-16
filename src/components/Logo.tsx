@@ -4,7 +4,7 @@ import { Image, Transition } from "semantic-ui-react";
 import logo from "../assets/images/logo.22f8373f.jpg";
 import { Link } from "react-router-dom";
 
-export const Logo = observer(() => {
+export const Logo = observer(({ toggleDrawer }: { toggleDrawer?: () => void; }) => {
   const [isVisible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
