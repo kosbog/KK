@@ -16,6 +16,7 @@ import { Version } from "./components/Version";
 import { useStores } from "./utils/hooks";
 import { toJS } from 'mobx';
 import { Adminpanel } from './pages/Adminpanel';
+import { LoginForm } from './components/LoginForm';
 
 export const App = observer(() => {
   const { productsStore } = useStores();
@@ -34,26 +35,27 @@ export const App = observer(() => {
         <Router>
           <Version />
           <Logo />
+          <LoginForm />
           {/* <Drawer> */}
-            <NavBar />
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/catalog/:category" exact component={Catalog} />
-              <Route
-                path="/catalog/:category/:id"
-                exact
-                render={(props: RouteComponentProps<{ id: string; category: string }>) => (
-                  <CatalogItem
-                    {...props}
-                    id={props.match.params.id}
-                    category={props.match.params.category}
-                    isPage={true}
-                    classNames="catalog-item-container"
-                  />
-                )}
-              />
-              <Route path="/admin" exact component={Adminpanel} />
-            </Switch>
+          <NavBar />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/catalog/:category" exact component={Catalog} />
+            <Route
+              path="/catalog/:category/:id"
+              exact
+              render={(props: RouteComponentProps<{ id: string; category: string }>) => (
+                <CatalogItem
+                  {...props}
+                  id={props.match.params.id}
+                  category={props.match.params.category}
+                  isPage={true}
+                  classNames="catalog-item-container"
+                />
+              )}
+            />
+            <Route path="/admin" exact component={Adminpanel} />
+          </Switch>
           {/* </Drawer> */}
         </Router>
       </div>
