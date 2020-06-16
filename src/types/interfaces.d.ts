@@ -5,7 +5,7 @@ interface FetchParams {
   value: string;
 }
 type Seasson = 'AUTUMN' | 'WINTER' | 'SPRING' | 'SUMMER';
-type Label = 'NEW' | 'SALE' | 'DISCOUNT';
+type Label = 'NEW' | 'SALE' | 'DISCOUNT' | 'NONE';
 type Collection = 'ALL' | 'BIKER' | 'BOMBER' | 'OVERSIZE' | 'TRUCKER' | 'FUR' | 'TEDDY' | 'SUEDE' | 'DUFF';
 interface Product {
   id: string;

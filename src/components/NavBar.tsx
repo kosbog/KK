@@ -25,7 +25,7 @@ export const NavBar = withRouter(
 
     return (
       <div className="nav-container">
-        <Menu text compact icon className="nav-menu">
+        <Menu text icon className="nav-menu">
           <Menu.Item
             as="span"
             className="nav-menu-item"
@@ -60,6 +60,24 @@ export const NavBar = withRouter(
           >
             <Link to={"/contacts"}>Contacts</Link>
           </Menu.Item>
+          {true && (
+            <>
+              <span className="divider"></span>
+              <Menu.Item
+                as="span"
+                className="nav-menu-item"
+                name="admin"
+                active={pathname.indexOf("admin") !== -1}
+                onClick={() =>
+                  activeMenu === "admin"
+                    ? setActiveMenu("")
+                    : setActiveMenu("admin")
+                }
+              >
+                <Link to={"/admin"}>Admin</Link>
+              </Menu.Item>
+            </>
+          )}
         </Menu>
         {activeMenu === "catalog" && (
           <div className="category category-wrapper">

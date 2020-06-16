@@ -47,7 +47,7 @@
 .nav {
   &-container {
     text-align: center;
-    padding: 24px 0 12px;
+    padding: 12px 0 12px;
 
     a {
       color: #000;
@@ -64,7 +64,9 @@
   }
 
   &-menu {
+    display: flex;
     align-items: center;
+    justify-content: center;
 
     &-item {
       width: 70px;

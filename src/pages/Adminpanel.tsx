@@ -11,7 +11,7 @@ interface AdminpanelProps extends RouteComponentProps<{}> {
 export const Adminpanel = observer(
   ({ }: AdminpanelProps) => {
     return (
-      <div>
+      <div className="admin-wrapper">
         <Header content="Admin panel" />
         <Link to='/'>
           Got to homepage
